@@ -29,7 +29,8 @@ El proyecto fue abordado desde una perspectiva QA integral, combinando análisis
 - GitHub
 ##  🗃️ Project Structure
 The project follows a modular structure designed to resemble a real-world Cypress automation framework
-cypress/
+
+   cypress/
 ├── e2e/
 │ ├── Login.cy.js
 │ ├── Login_invalido.cy.js
@@ -47,6 +48,7 @@ cypress/
 ├── support/
 ├── cypress.config.js
 └── package.json
+
 
 ## ✅ Casos de prueba automatizados (resumen)
 - Registro exitoso de usuario
