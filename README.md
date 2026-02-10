@@ -27,27 +27,31 @@ El proyecto fue abordado desde una perspectiva QA integral, combinando análisis
 - Node.js / npm
 - Mochawesome (reportes)
 - GitHub
-##  🗃️ Project Structure
-The project follows a modular structure designed to resemble a real-world Cypress automation framework
+  
+## 🗃️ Estructura del proyecto
 
-   cypress/
+The project follows a modular structure designed to resemble a real-world Cypress automation framework.
+
+```text
+cypress/
 ├── e2e/
-│ ├── Login.cy.js
-│ ├── Login_invalido.cy.js
-│ ├── Registro_Usuario.cy.js
-│ ├── Agregar_Productos_al_carrito.cy.js
-│ ├── Eliminar_productos_del_Carrito.cy.js
-│ ├── Verificar_La_Cantidad_de_productos_en_el_carrito.cy.js
-│ ├── Buscar_Productos.cy.js
-│ ├── Verificar_Productos.cy.js
-│ ├── Verificar_suscripcion.cy.js
-│ └── Verificar_test_page.cy.js
+│   ├── Login.cy.js
+│   ├── Login_invalido.cy.js
+│   ├── Registro_Usuario.cy.js
+│   ├── Agregar_Productos_al_carrito.cy.js
+│   ├── Eliminar_productos_del_Carrito.cy.js
+│   ├── Verificar_La_Cantidad_de_productos_en_el_carrito.cy.js
+│   ├── Buscar_Productos.cy.js
+│   ├── Verificar_Productos.cy.js
+│   ├── Verificar_suscripcion.cy.js
+│   └── Verificar_test_page.cy.js
 │
 ├── fixtures/
 ├── reports/
 ├── support/
 ├── cypress.config.js
-└── package.json
+├── package.json
+└── .gitignore
 
 
 ## ✅ Casos de prueba automatizados (resumen)
