@@ -27,12 +27,26 @@ El proyecto fue abordado desde una perspectiva QA integral, combinando análisis
 - Node.js / npm
 - Mochawesome (reportes)
 - GitHub
-
-## 📁 Estructura del proyecto
-- `cypress/e2e/` → specs de pruebas automatizadas
-- `cypress/fixtures/` → datos de prueba
-- `cypress/support/` → comandos y configuraciones
-- `cypress.config.js` → configuración general de Cypress
+##  🗃️ Project Structure
+The project follows a modular structure designed to resemble a real-world Cypress automation framework
+cypress/
+├── e2e/
+│ ├── Login.cy.js
+│ ├── Login_invalido.cy.js
+│ ├── Registro_Usuario.cy.js
+│ ├── Agregar_Productos_al_carrito.cy.js
+│ ├── Eliminar_productos_del_Carrito.cy.js
+│ ├── Verificar_La_Cantidad_de_productos_en_el_carrito.cy.js
+│ ├── Buscar_Productos.cy.js
+│ ├── Verificar_Productos.cy.js
+│ ├── Verificar_suscripcion.cy.js
+│ └── Verificar_test_page.cy.js
+│
+├── fixtures/
+├── reports/
+├── support/
+├── cypress.config.js
+└── package.json
 
 ## ✅ Casos de prueba automatizados (resumen)
 - Registro exitoso de usuario
@@ -49,6 +63,12 @@ Las ejecuciones generan reportes automáticos en formato **HTML** utilizando **M
 La documentación funcional y QA detallada del proyecto (plan de pruebas, historias de usuario, casos de prueba y reporte de defectos) se encuentra en Notion:
 
 https://neon-trust-754.notion.site/Proyecto-QA-2-Cypress-Proyecto-de-Automatizaci-n-E2E-sobre-AutomationExercise-23187c98b8c381fa93caff5b8bdc1716
+
+## 📁 Estructura del proyecto
+- `cypress/e2e/` → specs de pruebas automatizadas
+- `cypress/fixtures/` → datos de prueba
+- `cypress/support/` → comandos y configuraciones
+- `cypress.config.js` → configuración general de Cypress
 
 ## ▶️ Cómo ejecutar el proyecto
 ### Instalar dependencias
