@@ -3,29 +3,23 @@
 Proyecto de automatización de pruebas **End-to-End (E2E)** con **Cypress** sobre el sitio **AutomationExercise**.
 
 ## 🎯 Objetivo
-Realizar una revisión completa del sitio [https://automationexercise.com](https://automationexercise.com/), evaluando sus funcionalidades críticas desde el enfoque de calidad.
-El objetivo fue validar el correcto funcionamiento del e-commerce a través de pruebas automatizadas end-to-end con Cypress, enfocándose en los flujos de registro, login, pagina principa y carrito de compras.
+Validar los flujos críticos de usuario mediante pruebas manuales y automatizadas, asegurando el correcto funcionamiento de las funcionalidades principales y facilitando pruebas de regresión.
 
 ## 🧪 Alcance de pruebas
-El alcance de las pruebas abarcó funcionalidades críticas del sitio:
-- Registro de nuevos usuarios
-- Login válido e inválido
-- Navegación por productos
-- Visualización de detalles de producto
-- Búsqueda de productos
-- Agregado de productos al carrito
-- Modificación y verificación de cantidades (en productos)
-- Eliminación de productos del carrito
-- Suscripción desde el footer
-- Acceso a la página de Test Cases
+Las pruebas cubren los siguientes flujos:
+- Registro de usuario
+- Login (válido e inválido)
+- Navegación y validaciones de interfaz
+- Gestión de carrito (agregar y eliminar productos)
+- Validaciones adicionales (suscripción, cantidad de productos, páginas informativas)
 
   ## 🧪 Tipos de pruebas realizadas
-- Pruebas funcionales
+- Pruebas funcionales (manuales)
+- Pruebas E2E automatizadas
 - Pruebas de regresión
-- Pruebas E2E
 
-  ## 🧠 Estrategia de testing
-Las pruebas fueron diseñadas priorizando los flujos más críticos del negocio, validando escenarios positivos y negativos, y asegurando estabilidad ante cambios futuros mediante regresión automatizada.
+  ## 🧠 Enfoque QA
+El proyecto fue abordado desde una perspectiva QA integral, combinando análisis funcional, diseño de casos de prueba y automatización con Cypress, priorizando escenarios críticos del negocio y validando flujos positivos y negativos.
   
 ## 🛠️ Tecnologías y herramientas
 - Cypress
@@ -69,16 +63,16 @@ npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generato
 git clone https://github.com/Landreina1/cypress-automationexercise-e2e.git
 cd cypress-automationexercise-e2e
 
-## 🧠 Aprendizajes obtenidos
+## 📈 Aprendizajes y mejoras futuras
 
-- Comprensión del flujo completo de un e-commerce desde la perspectiva del usuario final
-- Uso de Cypress para automatizar pruebas end-to-end de forma estructurada
-- Importancia de seleccionar selectores estables para mantener los tests
-- Diferencias entre validaciones en formularios, detalles de producto y carrito
-- Mejora en la organización de pruebas por funcionalidad
-- Aplicación de criterios de aceptación y salida en un proyecto real
+-Mejora en el diseño de pruebas E2E
+-Uso de buenas prácticas de automatización
+-Integración futura con CI/CD
+-Ampliación de cobertura de pruebas
 
+## 👩🏽‍💻 Autor
 
+Leoneidys Andreina – QA Tester
 
 
 
