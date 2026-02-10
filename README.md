@@ -52,8 +52,7 @@ cypress/
 ├── cypress.config.js
 ├── package.json
 └── .gitignore
-
-
+```
 ## ✅ Casos de prueba automatizados (resumen)
 - Registro exitoso de usuario
 - Login exitoso
