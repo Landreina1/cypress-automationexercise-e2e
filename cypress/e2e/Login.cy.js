@@ -8,20 +8,20 @@ describe(' Login válido', () => {
 
     cy.visit('https://automationexercise.com/')
  
-  });
+ })
 
    it('Login valido', () => {
 
-    //Hacer click en el menu la opcion de registrarse
-   cy.get (('.shop-menu'))
-   cy.contains('Signup / Login').click()
+   //Hacer click en el menu la opcion de registrarse
+    cy.get (('.shop-menu'))
+    cy.contains('Signup / Login').click()
 
    // Verifique que la opción "Iniciar sesión en su cuenta" esté visible
 
    cy.contains('Login to your account')
     .should('be.visible')
 
-    //Ingrese la dirección de correo electrónico correcto
+   //Ingrese la dirección de correo electrónico correcto
 
     cy.get('[data-qa="login-email"]')
     .should('be.visible')
@@ -35,9 +35,11 @@ describe(' Login válido', () => {
     //clic en el botón "login"
     cy.get('[data-qa="login-button"]').click()
 
-   })
+   //Verifique que la opcion de logout este visible en el menu para identificar que el usuario esta dentro
+    cy.contains('Logout')
+    .should('be.visible')
 
-  
+   })
 })
 
 // Se valida el flujo de autenticación exitoso (happy path),
