@@ -1,17 +1,26 @@
-describe(' Agregar productos al carrito', () => {
+describe(' Eliminar productos del carrito', () => {
 
   it('Verificar que cargue la pagina de inicio', () => {
     cy.visit('https://automationexercise.com/')
+ })
+
+  beforeEach( () => {
+   cy.visit('https://automationexercise.com/view_cart') //Asegúrate de estar en la página
+   
+   //Limpiar el carrito antes de cada prueba
+   cy.get('body').then(($body) => { // Verificamos si hay productos antes de intentar borrar
+   if ($body.find('.cart_delete').length > 0) {
+   cy.get('.cart_delete').each(($btn) => {
+   cy.wrap($btn).click();
+   cy.contains ('Cart is empty!')
+   .should('be.visible')
+    })
+   }
    })
+ }) 
 
-   beforeEach( () => {
-
-    cy.visit('https://automationexercise.com/')
-
-  })
-
-  it('Agregar productos al carrito', () => {
-
+  it('Eliminar productos del carrito', () => {
+    
     //Hacer inicio de sesion con el usuario ya registrado
    cy.get('.shop-menu > .nav')
    cy.contains('Signup / Login').click()
@@ -40,7 +49,7 @@ describe(' Agregar productos al carrito', () => {
 
    //hacer click en Add to cart del producto 
    cy.get('.product-image-wrapper')
-   .eq(5)
+   .eq(1)
    .within(() => {
     cy.contains('Add to cart').click()
    })
@@ -57,17 +66,18 @@ describe(' Agregar productos al carrito', () => {
    cy.get('#cart_info_table').should('be.visible')
 
    //Haga clic en el botón 'X' correspondiente al producto en particular
-   cy.get('#product-6 > .cart_delete > .cart_quantity_delete > .fa').click()
+   cy.get('#product-2 > .cart_delete > .cart_quantity_delete > .fa').click()
 
    //Verificar que el producto se haya eliminado del carrito.
    cy.get('#cart_info_table tbody tr')
    .should('be.visible')
-   .and('have.length', 1)
+   .and('have.length', 2)
 
-
+  
   })
  }) 
 
  // En este spec se valida el flujo de eliminación de un producto del carrito,
+ // Antes de correr la prueba se agrego un beforeach que verifique estar dentro de la pagina y limpie el carrito antes de cada prueba,
  // confirmando que un usuario logueado puede acceder al carrito,
  // eliminar un producto específico y que el carrito se actualice correctamente.

@@ -1,16 +1,25 @@
-describe(' Agregar productos al carrito', () => {
+describe(' Verificar la cantidad de productos en el carrito', () => {
 
   it('Verificar que cargue la pagina de inicio', () => {
     cy.visit('https://automationexercise.com/')
    })
 
-   beforeEach( () => {
+  beforeEach( () => {
 
-    cy.visit('https://automationexercise.com/')
+    cy.visit('https://automationexercise.com/view_cart') //Asegúrate de estar en la página
+   //Limpiar el carrito antes de cada prueba
+   cy.get('body').then(($body) => { // Verificamos si hay productos antes de intentar borrar
+   if ($body.find('.cart_delete').length > 0) {
+   cy.get('.cart_delete').each(($btn) => {
+   cy.wrap($btn).click();
+   cy.contains ('Cart is empty!')
+   .should('be.visible')
+    })
+   }
+   })
+ }) 
 
-  })
-
-  it('Agregar productos al carrito', () => {
+  it('Verificar la cantidad de productos en el carrito', () => {
 
     //Hacer inicio de sesion con el usuario ya registrado
    cy.get('.shop-menu > .nav')
@@ -81,10 +90,10 @@ describe(' Agregar productos al carrito', () => {
    cy.contains('Cart').click()
 
    // Verificar que el producto "Stylish Dress" tenga cantidad 4 en el carrito
-cy.contains('#cart_info_table tbody tr', 'Men Tshirt',)
-  .within(() => {
-    cy.get('.cart_quantity button')
-      .should('have.text', '4')
+   cy.contains('#cart_info_table tbody tr', 'Men Tshirt',)
+   .within(() => {
+   cy.get('.cart_quantity button')
+   .should('have.text', '4')
   })
 
 

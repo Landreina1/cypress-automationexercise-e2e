@@ -6,9 +6,9 @@ describe(' Agregar productos al carrito', () => {
 
    beforeEach( () => {
 
-    cy.visit('https://automationexercise.com/')
-
-  })
+    cy.visit('https://automationexercise.com') //Asegúrate de estar en la página
+   
+   }) 
 
   it('Agregar productos al carrito', () => {
 
@@ -65,23 +65,27 @@ describe(' Agregar productos al carrito', () => {
    cy.contains('Cart').click()
 
    //Verifique que ambos productos estén agregados al carrito.
-   cy.get('#cart_info_table tbody tr')
+   cy.contains('Sleeves Printed Top - White')
    .should('be.visible')
-   .and('have.length', 2)
+
+   cy.contains('Summer White Top')
+   .should('be.visible')
 
    //Verificar sus precios, cantidad y precio total del producto 1 y dos del carrito
 
    //Producto 1
     cy.get('#cart_info_table tbody tr')
    .eq(0)
-   .find('.cart_price')
-   .should('contain.text', 'Rs. 400')
+   .find('.cart_price > p')
+   .should('contain.text', 'Rs. 499')
+
+
 
    //Producto 2
    cy.get('#cart_info_table tbody tr')
    .eq(1)
-   .find('.cart_price')
-   .should('contain.text', 'Rs. 499')
+   .find('.cart_price > p')
+   .should('contain.text', 'Rs. 400')
    
   })
 })

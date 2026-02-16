@@ -98,9 +98,9 @@ describe('Verifique que la página de inicio sea visible correctamente', () => {
    cy.get('[data-qa="country"]').select('Canada')
 
    //Complete los datos: PAIS
-   cy.get('form > :nth-child(17)')
+   cy.get('[data-qa="state"]')
    .should('be.visible')
-   .type('Canadax')
+   .type('Canadaas')
 
    //Complete los datos: city
    cy.get('[data-qa="city"]')

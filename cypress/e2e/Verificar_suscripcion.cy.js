@@ -1,4 +1,4 @@
-describe(' Buscar producto', () => {
+describe(' Verificar suscripción', () => {
 
   beforeEach( () => {
 

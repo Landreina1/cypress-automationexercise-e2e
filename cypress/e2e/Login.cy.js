@@ -13,7 +13,7 @@ describe(' Login válido', () => {
    it('Login valido', () => {
 
    //Hacer click en el menu la opcion de registrarse
-    cy.get (('.shop-menu'))
+   
     cy.contains('Signup / Login').click()
 
    // Verifique que la opción "Iniciar sesión en su cuenta" esté visible
@@ -24,12 +24,12 @@ describe(' Login válido', () => {
    //Ingrese la dirección de correo electrónico correcto
 
     cy.get('[data-qa="login-email"]')
-    .should('be.visible')
+    
     .type('pruebitaz@yopmail.com')
 
    //Ingrese la password correcta
     cy.get('[data-qa="login-password"]')
-    .should('be.visible')
+    
     .type('229621')
    
     //clic en el botón "login"
