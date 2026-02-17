@@ -7,6 +7,15 @@ describe(' Verificar la cantidad de productos en el carrito', () => {
   beforeEach( () => {
 
     cy.visit('https://automationexercise.com/view_cart') //Asegúrate de estar en la página
+
+    //Hacer inicio de sesion con el usuario ya registrado
+   cy.get('.shop-menu > .nav')
+   cy.contains('Signup / Login').click()
+   cy.get('[data-qa="login-email"]')
+   .type('pruebitaz@yopmail.com')
+   cy.get('[data-qa="login-password"]')
+   .type('229621')
+
    //Limpiar el carrito antes de cada prueba
    cy.get('body').then(($body) => { // Verificamos si hay productos antes de intentar borrar
    if ($body.find('.cart_delete').length > 0) {
@@ -27,12 +36,10 @@ describe(' Verificar la cantidad de productos en el carrito', () => {
 
    //Ingrese el email correcto
    cy.get('[data-qa="login-email"]')
-   .should('be.visible')
    .type('pruebitaz@yopmail.com')
 
    //Ingrese la password correcta
    cy.get('[data-qa="login-password"]')
-   .should('be.visible')
    .type('229621')
    
    //clic en el botón "login"
