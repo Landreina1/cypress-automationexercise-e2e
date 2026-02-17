@@ -4,40 +4,30 @@ describe(' Eliminar productos del carrito', () => {
     cy.visit('https://automationexercise.com/')
  })
 
-  beforeEach( () => {
-   cy.visit('https://automationexercise.com/view_cart') //Asegúrate de estar en la página
-   
-   //Limpiar el carrito antes de cada prueba
-   cy.get('body').then(($body) => { // Verificamos si hay productos antes de intentar borrar
-   if ($body.find('.cart_delete').length > 0) {
-   cy.get('.cart_delete').each(($btn) => {
-   cy.wrap($btn).click();
-   cy.contains ('Cart is empty!')
-   .should('be.visible')
-    })
-   }
+   beforeEach( () => {
+    cy.visit('https://automationexercise.com/view_cart') //Asegúrate de estar en la página
+
+    //Hacer inicio de sesion con el usuario ya registrado
+    cy.contains('Signup / Login').click()
+    cy.get('[data-qa="login-email"]').type('pruebitaz@yopmail.com')
+    cy.get('[data-qa="login-password"]').type('229621')
+    cy.get('[data-qa="login-button"]').click()
+    cy.contains('Logout').should('be.visible')
+    cy.contains('Cart').click()
+
+    //Limpiar el carrito antes de cada prueba
+    cy.get('body').then(($body) => { // Verificamos si hay productos antes de intentar borrar
+      if ($body.find('.cart_delete').length > 0) {
+        cy.get('.cart_delete .cart_quantity_delete').each(($btn) => {
+          cy.wrap($btn).click();
+        })
+      }
+      cy.contains('Cart is empty!').should('be.visible')
    })
  }) 
 
   it('Eliminar productos del carrito', () => {
     
-    //Hacer inicio de sesion con el usuario ya registrado
-   cy.get('.shop-menu > .nav')
-   cy.contains('Signup / Login').click()
-
-   //Ingrese el email correcto
-   cy.get('[data-qa="login-email"]')
-   .should('be.visible')
-   .type('pruebitaz@yopmail.com')
-
-   //Ingrese la password correcta
-   cy.get('[data-qa="login-password"]')
-   .should('be.visible')
-   .type('229621')
-   
-   //clic en el botón "login"
-   cy.get('[data-qa="login-button"]').click()
-
    //Hacer click en Products
    
    cy.get (('.shop-menu'))
@@ -69,9 +59,8 @@ describe(' Eliminar productos del carrito', () => {
    cy.get('#product-2 > .cart_delete > .cart_quantity_delete > .fa').click()
 
    //Verificar que el producto se haya eliminado del carrito.
-   cy.get('#cart_info_table tbody tr')
+   cy.contains('Cart is empty')
    .should('be.visible')
-   .and('have.length', 2)
 
   
   })

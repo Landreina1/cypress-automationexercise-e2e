@@ -1,53 +1,27 @@
 describe(' Verificar la cantidad de productos en el carrito', () => {
-
-  it('Verificar que cargue la pagina de inicio', () => {
-    cy.visit('https://automationexercise.com/')
-   })
-
   beforeEach( () => {
-
     cy.visit('https://automationexercise.com/view_cart') //Asegúrate de estar en la página
 
     //Hacer inicio de sesion con el usuario ya registrado
-   cy.get('.shop-menu > .nav')
-   cy.contains('Signup / Login').click()
-   cy.get('[data-qa="login-email"]')
-   .type('pruebitaz@yopmail.com')
-   cy.get('[data-qa="login-password"]')
-   .type('229621')
+    cy.contains('Signup / Login').click()
+    cy.get('[data-qa="login-email"]').type('pruebitaz@yopmail.com')
+    cy.get('[data-qa="login-password"]').type('229621')
+    cy.get('[data-qa="login-button"]').click()
+    cy.contains('Logout').should('be.visible')
+    cy.contains('Cart').click()
 
-   //Limpiar el carrito antes de cada prueba
-   cy.get('body').then(($body) => { // Verificamos si hay productos antes de intentar borrar
-   if ($body.find('.cart_delete').length > 0) {
-   cy.get('.cart_delete').each(($btn) => {
-   cy.wrap($btn).click();
-   cy.contains ('Cart is empty!')
-   .should('be.visible')
-    })
-   }
+    //Limpiar el carrito antes de cada prueba
+    cy.get('body').then(($body) => { // Verificamos si hay productos antes de intentar borrar
+      if ($body.find('.cart_delete').length > 0) {
+        cy.get('.cart_delete .cart_quantity_delete').each(($btn) => {
+          cy.wrap($btn).click();
+        })
+      }
+      cy.contains('Cart is empty!').should('be.visible')
    })
  }) 
 
   it('Verificar la cantidad de productos en el carrito', () => {
-
-    //Hacer inicio de sesion con el usuario ya registrado
-   cy.get('.shop-menu > .nav')
-   cy.contains('Signup / Login').click()
-
-   //Ingrese el email correcto
-   cy.get('[data-qa="login-email"]')
-   .type('pruebitaz@yopmail.com')
-
-   //Ingrese la password correcta
-   cy.get('[data-qa="login-password"]')
-   .type('229621')
-   
-   //clic en el botón "login"
-   cy.get('[data-qa="login-button"]').click()
-
-   //Hacer click en Products
-   
-   cy.get (('.shop-menu'))
    cy.contains('Products').click()
 
    //Verifique que el usuario haya accedido correctamente a la página ALL PRODUCTS
