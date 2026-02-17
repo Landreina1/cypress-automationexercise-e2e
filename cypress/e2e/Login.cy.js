@@ -24,16 +24,16 @@ describe(' Login válido', () => {
    //Ingrese la dirección de correo electrónico correcto
 
     cy.get('[data-qa="login-email"]')
-    
-    .type('pruebitaz@yopmail.com')
+    .should('be.visible')
+    .type('qases@yopmail.com')
 
    //Ingrese la password correcta
     cy.get('[data-qa="login-password"]')
-    
-    .type('229621')
+    .should('be.visible')
+    .type('1234')
    
     //clic en el botón "login"
-    cy.get('[data-qa="login-button"]').click()
+   cy.get('[data-qa="login-button"]').click()
 
    //Verifique que la opcion de logout este visible en el menu para identificar que el usuario esta dentro
     cy.contains('Logout')

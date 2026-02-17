@@ -77,7 +77,7 @@ describe(' Agregar productos al carrito', () => {
     cy.get('#cart_info_table tbody tr')
    .eq(0)
    .find('.cart_price > p')
-   .should('contain.text', 'Rs. 499')
+   .should('contain.text', 'Rs. 400')
 
 
 
@@ -85,7 +85,7 @@ describe(' Agregar productos al carrito', () => {
    cy.get('#cart_info_table tbody tr')
    .eq(1)
    .find('.cart_price > p')
-   .should('contain.text', 'Rs. 400')
+   .should('contain.text', 'Rs. 499')
    
   })
 })

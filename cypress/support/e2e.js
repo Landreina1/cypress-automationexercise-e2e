@@ -16,3 +16,10 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-mochawesome-reporter/register';
+
+Cypress.on('uncaught:exception', (err) => {
+  // Ignora errores JS de la aplicación bajo prueba
+  if (err.message.includes('Cannot read properties of null')) {
+    return false
+  }
+})

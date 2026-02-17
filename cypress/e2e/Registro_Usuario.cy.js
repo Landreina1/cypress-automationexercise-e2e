@@ -28,6 +28,8 @@ describe('Verifique que la página de inicio sea visible correctamente', () => {
    //Rellenar el campo email
    const email = `qases${Date.now()}@yopmail.com`
    cy.get('[data-qa="signup-email"]').type(email)
+   
+   
 
    //Click en el signup
     cy.get('[data-qa="signup-button"]').click()
